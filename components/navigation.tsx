@@ -4,56 +4,52 @@ import { motion } from 'framer-motion';
 
 export function Navigation() {
   const navItems = [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Proyectos', href: '#proyectos' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:py-6"
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between bg-white/80 backdrop-blur-md px-6 py-4 rounded-full border border-gray-200/50 shadow-sm">
-        {/* Logo */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+        {/* Logo/Brand */}
         <motion.div
-          className="font-bold text-xl text-black"
+          className="font-black text-xl text-black font-mono"
           whileHover={{ scale: 1.05 }}
         >
-          &lt;DEV /&gt;
+          ◆
         </motion.div>
 
         {/* Nav Items */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex gap-8 items-center">
           {navItems.map((item) => (
             <motion.a
               key={item.label}
               href={item.href}
-              className="text-gray-600 font-medium hover:text-black transition-colors duration-300 relative"
-              whileHover={{ color: '#000' }}
-              group
+              className="text-sm text-gray-700 font-mono font-medium hover:text-black transition-colors"
+              whileHover={{ scale: 1.05 }}
             >
               {item.label}
-              <motion.span
-                className="absolute bottom-0 left-0 h-0.5 bg-black"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.3 }}
-              />
             </motion.a>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <motion.button
-          className="px-6 py-2 bg-black text-white font-semibold rounded-full hover:bg-gray-900 transition-colors duration-300 text-sm"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Conectar
-        </motion.button>
+        {/* Right Section */}
+        <div className="flex items-center gap-4">
+          <button className="hidden md:block text-sm text-gray-700 font-mono hover:text-black transition-colors">
+            Download CV
+          </button>
+          <button className="text-sm text-gray-700 font-mono hover:text-black transition-colors md:hidden">
+            Menu
+          </button>
+        </div>
       </div>
     </motion.nav>
   );

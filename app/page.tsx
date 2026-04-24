@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="bg-white">
       <Navigation />
-      <section id="inicio">
+      <section id="inicio" className="pt-16">
         <Hero />
       </section>
       <section id="proyectos">

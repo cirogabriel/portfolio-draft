@@ -26,36 +26,34 @@ export function ProjectsSection() {
   };
 
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          className="mb-16"
+          className="mb-16 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
-          <motion.div variants={itemVariants} className="space-y-2 mb-4">
-            <p className="text-sm font-mono font-semibold text-gray-600 uppercase tracking-widest">
-              Portafolio
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-black">
-              Proyectos destacados
-            </h2>
-          </motion.div>
+          <motion.h2 
+            variants={itemVariants} 
+            className="text-5xl md:text-6xl font-black text-black font-mono mb-6 leading-tight"
+          >
+            Featured Work
+          </motion.h2>
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-600 text-lg max-w-2xl"
+            className="text-gray-700 text-lg font-mono max-w-2xl mx-auto"
           >
-            Selección de proyectos que demuestran mi experiencia en desarrollo de software, machine learning e inteligencia artificial.
+            Innovative projects combining software engineering with artificial intelligence
           </motion.p>
         </motion.div>
 
         {/* Projects Grid */}
         <motion.div
-          className="grid md:grid-cols-2 gap-8"
+          className="grid md:grid-cols-2 gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -64,19 +62,6 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <ProjectCard key={project.id} {...project} index={index} />
           ))}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <button className="px-8 py-3 border-2 border-black text-black font-semibold rounded-full hover:bg-black hover:text-white transition-colors duration-300 inline-block">
-            Ver todos los proyectos
-          </button>
         </motion.div>
       </div>
     </section>

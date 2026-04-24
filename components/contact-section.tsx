@@ -31,7 +31,7 @@ export function ContactSection() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="text-center space-y-8"
@@ -41,35 +41,41 @@ export function ContactSection() {
           viewport={{ once: true }}
         >
           {/* Header */}
-          <motion.div variants={itemVariants} className="space-y-4">
-            <p className="text-sm font-mono font-semibold text-gray-600 uppercase tracking-widest">
-              Contacto
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-black">
-              Cuéntame sobre tu proyecto
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h2 className="text-5xl md:text-6xl font-black text-black font-mono leading-tight">
+              Tell me about<br />your next project
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Estoy disponible para consultoría, colaboraciones y proyectos desafiantes. Contáctame para discutir cómo puedo ayudarte.
+            <p className="text-gray-700 text-lg font-mono max-w-2xl mx-auto">
+              Let&apos;s discuss how I can help you build intelligent solutions that matter.
             </p>
           </motion.div>
 
           {/* Email CTA */}
-          <motion.a
-            href={`mailto:${contact.email}`}
+          <motion.div
             variants={itemVariants}
-            className="inline-block"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex gap-4 justify-center flex-wrap pt-4"
           >
-            <div className="px-10 py-4 bg-black text-white font-bold text-lg rounded-full hover:bg-gray-900 transition-colors duration-300 shadow-lg hover:shadow-xl">
-              {contact.email}
-            </div>
-          </motion.a>
+            <motion.a
+              href={`mailto:${contact.email}`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-black text-white font-mono font-semibold text-sm hover:bg-gray-900 transition-colors"
+            >
+              Get Started
+            </motion.a>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 border border-black text-black font-mono font-semibold text-sm hover:bg-black hover:text-white transition-colors"
+            >
+              WhatsApp
+            </motion.button>
+          </motion.div>
 
           {/* Social Links */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center gap-6 pt-4"
+            className="flex justify-center gap-8 pt-6 border-t border-gray-200 mt-8 pt-8"
           >
             {socialLinks.map((link) => (
               <motion.a
@@ -77,13 +83,10 @@ export function ContactSection() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-black font-semibold hover:text-gray-600 transition-colors duration-300"
-                whileHover={{ x: 4 }}
+                className="text-sm text-gray-700 font-mono hover:text-black transition-colors"
+                whileHover={{ scale: 1.1 }}
               >
-                {link.label}
-                <span className="group-hover:translate-x-1 transition-transform duration-300">
-                  {link.icon}
-                </span>
+                {link.label} {link.icon}
               </motion.a>
             ))}
           </motion.div>

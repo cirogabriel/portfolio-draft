@@ -1,66 +1,104 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ProjectCard } from './project-card';
-import { projects } from '@/lib/data';
+
+const projects = [
+  {
+    id: 1,
+    title: 'AI Task Manager',
+    description: 'An intelligent task management system powered by machine learning algorithms that predict task priorities and deadlines based on historical data and user behavior patterns.',
+    tags: ['Machine Learning', 'React', 'Python', 'TensorFlow'],
+    link: '#',
+  },
+  {
+    id: 2,
+    title: 'Neural Code Assistant',
+    description: 'A real-time code completion tool using transformer-based models, providing intelligent suggestions for developers across multiple programming languages and frameworks.',
+    tags: ['Deep Learning', 'TypeScript', 'Next.js', 'GPT'],
+    link: '#',
+  },
+];
+
+const ProjectCard = ({ title, description, tags, link }: any) => {
+  return (
+    <motion.a
+      href={link}
+      className="block group"
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="bg-white border border-gray-300 rounded-lg overflow-hidden hover:border-black transition-colors duration-300 h-full flex flex-col">
+        {/* Image Placeholder */}
+        <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+          <div className="text-6xl font-black text-gray-400 font-mono">◆</div>
+        </div>
+
+        {/* Content */}
+        <div className="p-8 space-y-4 flex flex-col flex-grow">
+          <h3 className="text-2xl font-black text-black font-mono">
+            {title}
+          </h3>
+          <p className="text-gray-700 font-mono text-sm leading-relaxed flex-grow">
+            {description}
+          </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 pt-4">
+            {tags.map((tag: string) => (
+              <span key={tag} className="px-3 py-1 border border-gray-300 text-xs font-mono text-gray-700 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Link */}
+          <p className="text-black font-mono font-semibold text-sm pt-2 group-hover:underline">
+            View Project →
+          </p>
+        </div>
+      </div>
+    </motion.a>
+  );
+};
 
 export function ProjectsSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
+    <section id="projects" className="py-20 md:py-28 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           className="mb-16 text-center"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          variants={containerVariants}
         >
-          <motion.h2 
-            variants={itemVariants} 
-            className="text-5xl md:text-6xl font-black text-black font-mono mb-6 leading-tight"
-          >
+          <h2 className="text-5xl md:text-6xl font-black text-black font-mono mb-6">
             Featured Work
-          </motion.h2>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-gray-700 text-lg font-mono max-w-2xl mx-auto"
-          >
-            Innovative projects combining software engineering with artificial intelligence
-          </motion.p>
+          </h2>
+          <p className="text-gray-700 font-mono text-lg max-w-2xl mx-auto">
+            Projects showcasing expertise in software engineering and artificial intelligence
+          </p>
         </motion.div>
 
         {/* Projects Grid */}
         <motion.div
           className="grid md:grid-cols-2 gap-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} {...project} index={index} />
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <ProjectCard {...project} />
+            </motion.div>
           ))}
         </motion.div>
       </div>

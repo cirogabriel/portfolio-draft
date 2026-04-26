@@ -9,6 +9,8 @@ export function ContactSection() {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -17,6 +19,8 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
     
     try {
       const response = await fetch('/api/contact', {
@@ -25,15 +29,20 @@ export function ContactSection() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setFormData({ name: '', email: '', message: '' });
-        alert('Message sent successfully!');
+        setSubmitMessage(data.message || 'Message sent successfully!');
+        setTimeout(() => setSubmitMessage(''), 5000);
       } else {
-        alert('Error sending message');
+        setSubmitMessage(data.error || 'Error sending message');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error sending message');
+      setSubmitMessage('Error sending message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -105,10 +114,20 @@ export function ContactSection() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-8 py-3 bg-white text-black font-mono font-semibold hover:bg-gray-200 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full md:w-auto px-8 py-3 bg-white text-black font-mono font-semibold hover:bg-gray-200 disabled:bg-gray-500 transition-colors"
                 >
-                  SUBMIT
+                  {isSubmitting ? 'SENDING...' : 'SUBMIT'}
                 </button>
+                {submitMessage && (
+                  <motion.p
+                    className={`text-sm font-mono ${submitMessage.includes('successfully') || submitMessage.includes('Thank you') ? 'text-green-400' : 'text-red-400'}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    {submitMessage}
+                  </motion.p>
+                )}
               </form>
             </div>
           </div>

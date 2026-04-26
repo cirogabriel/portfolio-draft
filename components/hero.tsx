@@ -37,7 +37,8 @@ const TypewriterText = ({ text, speed = 100 }: { text: string; speed?: number })
 };
 
 export function Hero() {
-  const mainText = 'Hello, my name is Ciro';
+  const firstLine = 'Hello, my name is';
+  const secondLine = 'Ciro';
   const subtitleText = 'Computer Science Student specializing in Software Engineering & AI.';
 
   return (
@@ -49,10 +50,19 @@ export function Hero() {
         transition={{ duration: 0.8 }}
       >
         {/* Main Title with Pacifico Font and Typewriter */}
-        <div className="space-y-4">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-tight" style={{ fontFamily: 'Pacifico, cursive' }}>
-            <TypewriterText text={mainText} speed={80} />
+        <div className="space-y-2">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black leading-tight" style={{ fontFamily: 'Pacifico, cursive' }}>
+            <TypewriterText text={firstLine} speed={60} />
           </h1>
+          <motion.h1 
+            className="text-7xl md:text-8xl lg:text-9xl font-black text-black leading-tight" 
+            style={{ fontFamily: 'Pacifico, cursive' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            {secondLine}
+          </motion.h1>
         </div>
 
         {/* Subtitle */}

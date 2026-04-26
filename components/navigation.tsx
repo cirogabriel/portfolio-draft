@@ -39,9 +39,6 @@ export function Navigation() {
               {item.label}
             </motion.a>
           ))}
-          <button className="text-sm text-gray-700 font-mono hover:text-black transition-colors">
-            Download CV
-          </button>
         </div>
 
         {/* Mobile Menu */}

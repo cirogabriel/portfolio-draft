@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 const projects = [
   {
     id: 1,
@@ -21,12 +17,7 @@ const projects = [
 
 const ProjectCard = ({ title, description, tags, link }: any) => {
   return (
-    <motion.a
-      href={link}
-      className="block group"
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-    >
+    <a href={link} className="block group">
       <div className="bg-white border border-gray-300 rounded-lg overflow-hidden hover:border-black transition-colors duration-300 h-full flex flex-col">
         {/* Image Placeholder */}
         <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
@@ -57,7 +48,7 @@ const ProjectCard = ({ title, description, tags, link }: any) => {
           </p>
         </div>
       </div>
-    </motion.a>
+    </a>
   );
 };
 
@@ -66,41 +57,23 @@ export function ProjectsSection() {
     <section id="projects" className="py-20 md:py-28 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
-          className="mb-16 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 text-center">
           <h2 className="text-5xl md:text-6xl font-black text-black font-mono mb-6">
             Featured Work
           </h2>
           <p className="text-gray-700 font-mono text-lg max-w-2xl mx-auto">
             Projects showcasing expertise in software engineering and artificial intelligence
           </p>
-        </motion.div>
+        </div>
 
         {/* Projects Grid */}
-        <motion.div
-          className="grid md:grid-cols-2 gap-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="grid md:grid-cols-2 gap-10">
           {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <div key={project.id}>
               <ProjectCard {...project} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

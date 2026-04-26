@@ -1,27 +1,12 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { aboutData } from '@/lib/data';
 
 export function AboutSection() {
   return (
     <section id="about" className="py-20 md:py-28 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left - Text Content */}
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="space-y-8">
             <h2 className="text-4xl md:text-5xl font-black text-black font-mono leading-tight">
               {aboutData.title}
             </h2>
@@ -45,26 +30,16 @@ export function AboutSection() {
           </motion.div>
 
           {/* Right - Visual Element */}
-          <motion.div
-            className="relative h-96 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="relative h-96 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200" />
-            <motion.div
-              className="relative z-10 text-center space-y-4 px-8"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
+            <div className="relative z-10 text-center space-y-4 px-8">
               <div className="text-6xl font-black text-black font-mono">◆</div>
               <p className="text-gray-700 font-mono text-sm">
                 Software Engineer<br />& AI Enthusiast
               </p>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

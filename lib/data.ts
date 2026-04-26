@@ -1,49 +1,49 @@
+export const heroData = {
+  name: "Hello, my name is Ciro",
+  subtitle: "Computer Science Student specializing in Software Engineering & AI.",
+};
+
+export const aboutData = {
+  title: "I'm a Software Engineer & AI Enthusiast",
+  description: "who builds intelligent systems and user-friendly applications that solve real problems. Passionate about machine learning, full-stack development, and creating impactful solutions.",
+  highlights: [
+    "Machine Learning & AI Systems",
+    "Full-Stack Development",
+    "Cloud Architecture",
+    "Open Source Contributor"
+  ],
+};
+
 export const projects = [
   {
     id: 1,
-    title: "Neural Network Visualization",
-    description: "Plataforma interactiva para visualizar y entrenar redes neuronales en tiempo real. Incluye diferentes arquitecturas (CNN, RNN, Transformer) y métricas en vivo.",
+    title: "AI Task Manager",
+    description: "An intelligent task management system powered by machine learning algorithms that predict task priorities and deadlines based on historical data and user behavior patterns.",
     image: "https://images.unsplash.com/photo-1677442d019cecf3d87f5f2310c57b1a44abda732?w=600&h=400&fit=crop",
-    tags: ["Python", "TensorFlow", "React", "WebGL"],
+    tags: ["Machine Learning", "React", "Python", "TensorFlow"],
     link: "#",
   },
   {
     id: 2,
-    title: "Code Intelligence Assistant",
-    description: "Asistente de IA que analiza código en tiempo real, sugiere mejoras, detecta bugs y genera documentación automática. Soporta múltiples lenguajes.",
+    title: "Neural Code Assistant",
+    description: "A real-time code completion tool using transformer-based models, providing intelligent suggestions for developers across multiple programming languages and frameworks.",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
-    tags: ["Node.js", "OpenAI", "TypeScript", "FastAPI"],
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "Data Pipeline Orchestrator",
-    description: "Sistema de orquestación de pipelines de datos con UI intuitiva. Manejo de flujos ETL complejos, scheduling automático y monitoreo en tiempo real.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    tags: ["Airflow", "PostgreSQL", "Docker", "React"],
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "ML Model Deployment Platform",
-    description: "Plataforma serverless para deployment y versionado de modelos ML. Control de versiones, A/B testing automático y monitoreo de drift de datos.",
-    image: "https://images.unsplash.com/photo-1518611505868-d2b4fd00f88b?w=600&h=400&fit=crop",
-    tags: ["Kubernetes", "MLflow", "AWS", "Python"],
+    tags: ["Deep Learning", "TypeScript", "Next.js", "GPT"],
     link: "#",
   },
 ];
 
 export const skills = {
-  languages: ["Python", "TypeScript", "JavaScript", "SQL", "Java"],
-  frameworks: ["React", "Next.js", "FastAPI", "Django", "Node.js"],
+  languages: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "C++"],
+  frameworks: ["React", "Next.js", "FastAPI", "Django", "Node.js", "Express"],
   ml: ["TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face", "OpenAI API"],
-  tools: ["Git", "Docker", "Kubernetes", "PostgreSQL", "AWS", "GCP"],
+  tools: ["Git", "Docker", "PostgreSQL", "AWS", "VS Code", "Linux"],
   other: ["Machine Learning", "System Design", "Data Engineering", "DevOps"],
 };
 
 export const contact = {
-  email: "tu.email@ejemplo.com",
-  linkedin: "https://linkedin.com/in/tu-perfil",
-  github: "https://github.com/tu-usuario",
-  twitter: "https://twitter.com/tu-usuario",
+  email: "ciro@example.com",
+  linkedin: "https://linkedin.com/in/ciro",
+  github: "https://github.com/ciro",
+  twitter: "https://twitter.com/ciro",
 };

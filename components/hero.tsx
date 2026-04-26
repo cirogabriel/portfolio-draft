@@ -50,7 +50,7 @@ export function Hero() {
       >
         {/* Main Title with Pacifico Font and Typewriter */}
         <div className="space-y-4">
-          <h1 style={{ fontFamily: "'Pacifico', cursive" }} className="text-5xl md:text-7xl lg:text-8xl font-bold text-black leading-tight italic">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-tight" style={{ fontFamily: 'Pacifico, cursive' }}>
             <TypewriterText text={mainText} speed={80} />
           </h1>
         </div>
